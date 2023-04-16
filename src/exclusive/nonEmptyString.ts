@@ -1,4 +1,4 @@
-import Not from './not';
+import { Not } from './not';
 import {
   checkArgument,
   isDefined,
@@ -9,7 +9,7 @@ import {
 
 type EmptyString = '';
 
-type NonEmptyString = string & Not<string, EmptyString>;
+export type NonEmptyString = string & Not<string, EmptyString>;
 
 function isNonZeroLengthString(inputString: string): boolean {
   return inputString.length > 0;
@@ -42,5 +42,3 @@ export function castToNonEmptyString(
 
   return definedNonNullString;
 }
-
-export default NonEmptyString;

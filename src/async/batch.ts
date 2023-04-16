@@ -1,4 +1,4 @@
-import Result from '../result';
+import { Result } from '../result';
 
 export async function promisesByKey<KEY_TYPE extends string, RESULT_TYPE>(
   keys: Set<KEY_TYPE>,

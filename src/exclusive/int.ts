@@ -1,4 +1,4 @@
-type Int = number & { __int__: void };
+export type Int = number & { __int__: void };
 
 export const roundToInt = (num: number): Int => Math.round(num) as Int;
 
@@ -32,5 +32,3 @@ export const castToInt = (num: number): Int => {
 
   throw new Error(`Invalid Int value: ${num}`);
 };
-
-export default Int;

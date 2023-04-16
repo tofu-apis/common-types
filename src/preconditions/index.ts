@@ -1,5 +1,5 @@
-import NonEmptyString from '../exclusive/nonEmptyString';
-import Not from '../exclusive/not';
+import { NonEmptyString } from '../exclusive/nonEmptyString';
+import { Not } from '../exclusive/not';
 
 export function isNull(input: unknown): boolean {
   return input === null;

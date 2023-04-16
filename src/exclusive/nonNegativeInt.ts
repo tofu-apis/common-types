@@ -1,6 +1,6 @@
-import Int, { castToInt, isInt } from './int';
+import { Int, castToInt, isInt } from './int';
 
-type NonNegativeInt = Int & { __nonNegativeInt__: void };
+export type NonNegativeInt = Int & { __nonNegativeInt__: void };
 
 export const isNonNegative = (int: Int): int is NonNegativeInt => int >= 0;
 
@@ -27,5 +27,3 @@ export const castToNonNegativeInt = (num: number): NonNegativeInt => {
 
   return castToNonNegative(int);
 };
-
-export default NonNegativeInt;

@@ -1,4 +1,4 @@
-export default class StrictPromise<T> {
+export class StrictPromise<T> {
   private promise: Promise<T>;
 
   constructor(

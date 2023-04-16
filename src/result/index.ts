@@ -1,4 +1,4 @@
-export default class Result<T, E extends Error> {
+export class Result<T, E extends Error> {
   private value: T | null;
   private error: E | null;
 
