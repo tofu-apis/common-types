@@ -95,7 +95,7 @@ jobs:
         with:
           access: public
           # Defaulting to true - enable this on a new package
-          dry-run: true
+          dry-run: false
           token: ${{ secrets.NPM_PUBLISH_ACCESS_TOKEN }}
       - if: steps.publish.outputs.type != 'none'
         run: |
