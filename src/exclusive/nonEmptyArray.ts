@@ -1,4 +1,4 @@
-type NonEmptyArray<T> = [T, ...T[]];
+export type NonEmptyArray<T> = [T, ...T[]];
 
 function isNonZeroLengthArray<T>(array: T[]): array is NonEmptyArray<T> {
   return array.length > 0;
