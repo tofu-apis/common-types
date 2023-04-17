@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@jest/globals": "29.4.2",
-    "@tofu-apis/eslint-config-ts-base": "1.0.2",
+    "@tofu-apis/eslint-config-ts-base": "*",
     "@types/jest": "29.4.0",
     "@types/lodash": "4.14.194",
     "@types/node": "18.15.11",
