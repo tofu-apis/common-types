@@ -3,7 +3,7 @@ export class StrictPromise<T> {
 
   constructor(
     executor: (
-      resolve: (value: T | PromiseLike<T>) => void,
+      resolve: (value: PromiseLike<T> | T) => void,
       reject: (reason: Error) => void,
     ) => void,
   ) {
@@ -31,8 +31,8 @@ export class StrictPromise<T> {
   }
 
   then<U>(
-    onFulfilled?: ((value: T) => U | PromiseLike<U>) | undefined | null,
-    onRejected?: ((reason: Error) => U | PromiseLike<U>) | undefined | null,
+    onFulfilled?: ((value: T) => PromiseLike<U> | U) | null | undefined,
+    onRejected?: ((reason: Error) => PromiseLike<U> | U) | null | undefined,
   ): StrictPromise<U> {
     return new StrictPromise((resolve, reject) => {
       this.promise.then(
@@ -40,7 +40,7 @@ export class StrictPromise<T> {
           if (onFulfilled) {
             resolve(onFulfilled(value));
           } else {
-            resolve(value as unknown as U | PromiseLike<U>);
+            resolve(value as unknown as PromiseLike<U> | U);
           }
         },
         (reason: Error) => {

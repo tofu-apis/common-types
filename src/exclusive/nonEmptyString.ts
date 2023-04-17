@@ -9,13 +9,13 @@ import {
 
 type EmptyString = '';
 
-export type NonEmptyString = string & Not<string, EmptyString>;
+export type NonEmptyString = Not<string, EmptyString> & string;
 
 function isNonZeroLengthString(inputString: string): boolean {
   return inputString.length > 0;
 }
 
-export function isNonEmptyString(input: string | undefined | null): boolean {
+export function isNonEmptyString(input: string | null | undefined): boolean {
   if (!isNonNull(input)) {
     return false;
   }
@@ -29,7 +29,7 @@ export function isNonEmptyString(input: string | undefined | null): boolean {
 }
 
 export function castToNonEmptyString(
-  inputString: string | undefined | null,
+  inputString: string | null | undefined,
 ): NonEmptyString {
   requireNonNull(inputString);
   requireDefined(inputString);
