@@ -1,4 +1,4 @@
-export * from './array';
+export * from './collection';
 export * from './async';
 export * from './callables';
 export * from './exclusive';
