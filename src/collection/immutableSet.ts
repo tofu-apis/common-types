@@ -4,14 +4,14 @@ export class ImmutableSet<T> {
   private readonly _innerSet: Set<T>;
 
   constructor(inputArray: NonEmptyArray<T>) {
-    const duplicates = this.findDuplicates(inputArray);
+    const duplicates = ImmutableSet.findDuplicates(inputArray);
     if (duplicates.length > 0) {
       throw new Error(`Duplicate values found: ${duplicates.join(', ')}`);
     }
     this._innerSet = new Set(inputArray);
   }
 
-  private findDuplicates(inputArray: T[]): T[] {
+  private static findDuplicates<T>(inputArray: T[]): T[] {
     const seen = new Set<T>();
     const duplicates = new Set<T>();
 
@@ -38,8 +38,15 @@ export class ImmutableSet<T> {
     return this._innerSet.values();
   }
 
-  // Optional: you can add a custom iterator to make it easier to use
-  // ImmutableUniqueSet with for..of loops
+  public forEach<A>(
+    callback: (value: T, value2: T, set: ImmutableSet<T>) => void,
+    thisArg?: A,
+  ): void {
+    this._innerSet.forEach((value) => {
+      callback.call(thisArg, value, value, this);
+    });
+  }
+
   *[Symbol.iterator](): IterableIterator<T> {
     yield* this._innerSet.values();
   }
