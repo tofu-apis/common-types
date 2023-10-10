@@ -25,7 +25,7 @@
     "prepublishOnly": "yarn install && yarn run build"
   },
   "engines": {
-    "node": "16.19.1",
+    "node": "^16.19.1",
     "yarn": "1.22.10"
   },
   "devDependencies": {
